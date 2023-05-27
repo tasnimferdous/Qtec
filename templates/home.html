@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!--................Banner Section................-->
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{% static '/images/banner-1.jpg' %}" alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{% static '/images/banner-2.jpg' %}" alt="Second slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only"></span>
+    </a>
+  </div>
+
+
+
+
+
+<!--................Main Section................-->
+<div class="section mt-5">
+    <div class="sidebar my-3 mx-3" style="background:#000; color:#fff; padding:20px;">
+        <h3>Filter</h3>
+
+        <div class="overflow-auto mb-3" id="brand_filter">
+            <div class="form-group">
+              <h5>Categories </h5>
+                {% for category in categories %}
+
+                <div class="form-check">
+                <input type="checkbox" class="form-check-category" id="{{ category.name }}-checkbox" value="{{ category.name }}">
+                <label class="form-check-label" for="{{ category.name }}-checkbox">{{ category.name }}</label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="overflow-auto mb-3" id="brand_filter">
+            <div class="form-group">
+              <h5>Brands </h5>
+                {% for brand in brands %}
+
+                <div class="form-check">
+                <input type="checkbox" class="form-check-brand" id="{{ brand.name }}-checkbox" value="{{ brand.name }}">
+                <label class="form-check-label" for="{{ brand.name }}-checkbox">{{ brand.name }}</label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="overflow-auto mb-3" id="seller_filter">
+            <div class="form-group">
+              <h5>Sellers </h5>
+                {% for seller in sellers %}
+
+                <div class="form-check">
+                <input type="checkbox" class="form-check-seller" id="{{ seller.name }}-checkbox" value="{{ seller.name }}">
+                <label class="form-check-label" for="{{ seller.name }}-checkbox">{{ seller.name }}</label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="overflow-auto mb-3" id="warranty_filter">
+            <div class="form-group">
+              <h5>Warranty </h5>
+                {% for warranty in warranty_list %}
+
+                <div class="form-check">
+                <input type="checkbox" class="form-check-warranty" id="{{ warranty.name }}-checkbox" value="{{ warranty.value }}-{{ warranty.time }}">
+                <label class="form-check-label" for="{{ warranty.value }}-checkbox">{{ warranty.value }} {{ warranty.time }}</label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="overflow-auto mb-3" id="discount_filter">
+            <div class="form-group">
+              <h5>Discount </h5>
+                {% for discount in discount_list %}
+
+                <div class="form-check">
+                <input type="checkbox" class="form-check-discount" id="{{ discount.name }}-checkbox" value="{{ discount.name }}">
+                <label class="form-check-label" for="{{ discount.name }}-checkbox">{{ discount.name }}</label>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+    <div id="product-list" class="row">
+
+    </div>
+</div>
+
+
+{% endblock content %}

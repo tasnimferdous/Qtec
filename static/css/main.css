@@ -1,0 +1,13 @@
+.section{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.product_img{
+    width: 100%;
+    height: 150px;
+}
+
+.carousel-item{
+    height: 300px;
+}
